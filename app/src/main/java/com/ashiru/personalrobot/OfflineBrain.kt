@@ -53,7 +53,7 @@ class OfflineBrain(context: Context) : SQLiteOpenHelper(context.applicationConte
                 if (score > bestScore) { bestScore = score; bestText = content }
             }
         }
-        return if (bestScore >= 2 || (queryWords.size == 1 && bestScore == 1)) bestText else null
+        return if (bestScore >= 1) bestText else null
     }
 
     fun answer(query: String): String? {
@@ -79,7 +79,7 @@ class OfflineBrain(context: Context) : SQLiteOpenHelper(context.applicationConte
                     if (score > bestScore) { bestScore = score; bestAnswer = item.optString("answer").takeIf { it.isNotBlank() } }
                 }
             }
-            if (bestScore >= 2 || (queryWords.size == 1 && bestScore == 1)) bestAnswer else null
+            if (bestScore >= 1) bestAnswer else null
         } catch (_: Exception) { null }
     }
 
