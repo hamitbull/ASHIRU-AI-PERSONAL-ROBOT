@@ -10,7 +10,7 @@ class AiClient(context: Context) {
     private val prefs=context.getSharedPreferences("ai_config",Context.MODE_PRIVATE)
     fun ask(prompt:String):String? {
         val endpoint=prefs.getString("endpoint","").orEmpty()
-        val key=prefs.getString("key","").orEmpty()
+        val key=SecurePrefs.read(context).orEmpty()
         val model=prefs.getString("model","").orEmpty()
         if(endpoint.isBlank()||key.isBlank()||model.isBlank()) return null
         var connection:HttpURLConnection?=null
