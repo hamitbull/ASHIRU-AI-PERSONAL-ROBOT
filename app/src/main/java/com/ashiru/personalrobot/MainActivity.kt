@@ -119,8 +119,13 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
     }
     private fun readScreen() {
         val value=ScreenReaderService.latestText
-        if(value.isNullOrBlank()) addMessage("ASHIRU AI","Ban sami rubutun screen ba. Ka kunna Accessibility service sannan ka buɗe app ɗin da kake son karantawa.")
-        else addMessage("ASHIRU AI","Rubutun da aka gani a screen:\n"+value.take(6000))
+        if(!value.isNullOrBlank()) {
+            addMessage("ASHIRU AI","Rubutun da aka karanta daga app ɗin da ka zaɓa:\\n"+value)
+            ScreenReaderService.latestText=null
+        } else {
+            ScreenReaderService.requestNextRead=true
+            addMessage("ASHIRU AI","Na shirya karantawa. Ka koma app ɗin da kake son karantawa; bayan ya nuna rubutu, ka dawo nan ka danna Karanta screen.")
+        }
     }
     private fun toggleOverlay() {
         if(Settings.canDrawOverlays(this)) startService(Intent(this,RobotOverlayService::class.java))
