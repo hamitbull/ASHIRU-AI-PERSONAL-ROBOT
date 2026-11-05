@@ -60,7 +60,7 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
         row3.addView(toolButton("Floating robot") { toggleOverlay() }, weighted())
         root.addView(row3, match())
         root.addView(toolButton("Goge duk memory") { confirmClearMemories() }, match())
-        root.addView(TextView(this).apply { text = "Sirri: AI API key yana ajiyar app a wayarka. Screen reading sai ka kunna Accessibility da kanka. Camera da microphone suna aiki ne bayan izini."; textSize=10f; setTextColor(Color.LTGRAY); setPadding(4,5,4,0) }, match())
+        root.addView(TextView(this).apply { text = "Sirri: AI API key ana ɓoye shi da Android Keystore a wayarka. Screen reading sai ka kunna Accessibility da kanka. Camera da microphone suna aiki ne bayan izini."; textSize=10f; setTextColor(Color.LTGRAY); setPadding(4,5,4,0) }, match())
         setContentView(root)
     }
 
@@ -88,14 +88,15 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
         val box=LinearLayout(this).apply { orientation=LinearLayout.VERTICAL; setPadding(18,4,18,4) }
         val endpoint=EditText(this).apply { hint="API URL (OpenAI-compatible)"; setSingleLine(); setText(prefs.getString("endpoint","https://api.openai.com/v1/chat/completions")) }
         val model=EditText(this).apply { hint="Model name"; setSingleLine(); setText(prefs.getString("model","gpt-4o-mini")) }
-        val key=EditText(this).apply { hint="API key"; setSingleLine(); setText(prefs.getString("key","")); inputType=129 }
+        val key=EditText(this).apply { hint="API key"; setSingleLine(); inputType=129 }
         box.addView(endpoint); box.addView(model); box.addView(key)
         AlertDialog.Builder(this).setTitle("AI connection")
             .setMessage("Saka endpoint, model da API key daga mai bada AI service. Kada ka saka key a GitHub. Amfani da cloud na iya haifar da kuɗin provider.")
             .setView(box).setPositiveButton("Ajiye") { _,_ ->
-                prefs.edit().putString("endpoint",endpoint.text.toString().trim()).putString("model",model.text.toString().trim()).putString("key",key.text.toString().trim()).apply()
+                prefs.edit().putString("endpoint",endpoint.text.toString().trim()).putString("model",model.text.toString().trim()).apply()
+                SecurePrefs.save(this,key.text.toString().trim())
                 status.text="An ajiye saitin AI a wayarka."
-            }.setNeutralButton("Goge key") { _,_ -> prefs.edit().remove("key").apply() }
+            }.setNeutralButton("Goge key") { _,_ -> SecurePrefs.clear(this) }
             .setNegativeButton("Soke",null).show()
     }
     private fun saveMemory() {
