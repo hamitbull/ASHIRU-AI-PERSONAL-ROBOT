@@ -30,6 +30,7 @@ class AirGestureActivity : ComponentActivity() {
     private var previousY:Float?=null
     private var lastGestureAt=0L
     private var lastLabel=""
+    private var cameraStarted=false
 
     override fun onCreate(savedInstanceState:Bundle?){
         super.onCreate(savedInstanceState)
@@ -41,14 +42,21 @@ class AirGestureActivity : ComponentActivity() {
         if(checkSelfPermission(Manifest.permission.CAMERA)!=PackageManager.PERMISSION_GRANTED)requestPermissions(arrayOf(Manifest.permission.CAMERA),61) else startCamera()
     }
 
+    override fun onResume(){
+        super.onResume()
+        if(checkSelfPermission(Manifest.permission.CAMERA)==PackageManager.PERMISSION_GRANTED && !cameraStarted) startCamera()
+    }
+
     private fun startCamera(){
+        if(cameraStarted) return
+        cameraStarted=true
         try{
             val base=BaseOptions.builder().setModelAssetPath("hand_landmarker.task").build()
             val options=HandLandmarker.HandLandmarkerOptions.builder().setBaseOptions(base)
                 .setRunningMode(RunningMode.VIDEO).setNumHands(2)
                 .setMinHandDetectionConfidence(0.55f).setMinTrackingConfidence(0.55f).build()
             landmarker=HandLandmarker.createFromOptions(this,options)
-        }catch(e:Exception){status.text="Ba a samu hand model ba: ${e.message}";return}
+        }catch(e:Exception){cameraStarted=false;status.text="Ba a samu hand model ba: ${e.message}";return}
         val providerFuture=ProcessCameraProvider.getInstance(this)
         providerFuture.addListener({
             val provider=providerFuture.get()
@@ -94,10 +102,6 @@ class AirGestureActivity : ComponentActivity() {
                 provider.bindToLifecycle(this,CameraSelector.DEFAULT_FRONT_CAMERA,previewUseCase,analysis)
             }catch(e:Exception){status.text="Camera ta kasa farawa: ${e.message}"}
         },ContextCompat.getMainExecutor(this))
-    }
-    override fun onRequestPermissionsResult(requestCode:Int,permissions:Array<out String>,grantResults:IntArray){
-        super.onRequestPermissionsResult(requestCode,permissions,grantResults)
-        if(requestCode==61 && grantResults.firstOrNull()==PackageManager.PERMISSION_GRANTED)startCamera() else status.text="An hana camera permission."
     }
     override fun onDestroy(){try{landmarker?.close()}catch(_:Exception){};cameraExecutor.shutdown();super.onDestroy()}
 }
