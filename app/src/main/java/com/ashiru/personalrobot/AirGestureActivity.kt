@@ -1,7 +1,7 @@
 package com.ashiru.personalrobot
 
 import android.Manifest
-import android.app.Activity
+import androidx.activity.ComponentActivity
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Matrix
@@ -22,7 +22,7 @@ import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.google.mediapipe.tasks.vision.handlandmarker.HandLandmarker
 import java.util.concurrent.Executors
 
-class AirGestureActivity : Activity() {
+class AirGestureActivity : ComponentActivity() {
     private lateinit var preview:PreviewView
     private lateinit var status:TextView
     private val cameraExecutor=Executors.newSingleThreadExecutor()
