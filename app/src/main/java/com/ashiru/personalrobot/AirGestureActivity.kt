@@ -4,6 +4,8 @@ import android.Manifest
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.Matrix
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.SystemClock
 import android.widget.LinearLayout
@@ -54,7 +56,12 @@ class AirGestureActivity : Activity() {
             val analysis=ImageAnalysis.Builder().setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST).build()
             analysis.setAnalyzer(cameraExecutor){image->
                 try{
-                    val bitmap=image.toBitmap()
+                    val rawBitmap=image.toBitmap()
+                    val rotation=image.imageInfo.rotationDegrees
+                    val bitmap=if(rotation!=0){
+                        val matrix=Matrix().apply{postRotate(rotation.toFloat())}
+                        Bitmap.createBitmap(rawBitmap,0,0,rawBitmap.width,rawBitmap.height,matrix,true)
+                    }else rawBitmap
                     val mp=BitmapImageBuilder(bitmap).build()
                     val result=landmarker?.detectForVideo(mp,SystemClock.uptimeMillis())
                     val hand=result?.landmarks()?.firstOrNull()
