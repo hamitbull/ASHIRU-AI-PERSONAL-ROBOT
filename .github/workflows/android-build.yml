@@ -16,6 +16,11 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - name: Download on-device hand landmark model
+        run: |
+          mkdir -p app/src/main/assets
+          curl --fail --location --retry 3 --output app/src/main/assets/hand_landmarker.task https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task
+          test -s app/src/main/assets/hand_landmarker.task
       - name: Configure Android SDK
         run: |
           echo "ANDROID_HOME=/usr/local/lib/android/sdk" >> "$GITHUB_ENV"
@@ -31,6 +36,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+      - name: Validate offline knowledge assets
+        run: |
+          python3 -m json.tool app/src/main/assets/knowledge_ha.json >/dev/null
+          python3 -m json.tool app/src/main/assets/knowledge_en.json >/dev/null
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
       - name: Verify APK
