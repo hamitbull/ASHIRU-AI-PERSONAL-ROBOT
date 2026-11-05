@@ -1,0 +1,3 @@
+<resources>
+    <string name="accessibility_description">Reads visible text from the current screen only when the user explicitly requests it inside ASHIRU AI.</string>
+</resources>
