@@ -16,6 +16,7 @@ import java.util.Locale
 
 class MainActivity : Activity(), TextToSpeech.OnInitListener {
     private lateinit var prefs: SharedPreferences
+    private lateinit var offlineBrain: OfflineBrain
     private lateinit var tts: TextToSpeech
     private lateinit var status: TextView
     private lateinit var memory: EditText
@@ -24,6 +25,7 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = getSharedPreferences("ashiru_memory", MODE_PRIVATE)
+        offlineBrain = OfflineBrain(this)
         tts = TextToSpeech(this, this)
         window.statusBarColor = Color.rgb(13, 17, 35)
         window.navigationBarColor = Color.rgb(13, 17, 35)
@@ -92,7 +94,8 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
             text = "Ajiye abin da na koya"
             setOnClickListener {
                 prefs.edit().putString("memory", memory.text.toString()).apply()
-                say("Na ajiye abin da ka koya min.")
+                offlineBrain.remember(memory.text.toString())
+                say("Na ajiye abin da ka koya min a wayarka.")
             }
         }
         root.addView(save, match())
@@ -138,12 +141,15 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
     private fun respond(words: String) {
         val q = words.lowercase(Locale.ROOT)
         val answer = when {
+            q.contains("me ka tuna") || q.contains("show memory") ->
+                offlineBrain.getMemories().joinToString("\\n").ifBlank { "Har yanzu babu abin da ka ajiye a memory." }
             q.contains("sannu") || q.contains("hello") -> "Sannu da zuwa! Ina nan domin taimaka maka."
-            q.contains("waye") && q.contains("kai") -> "Ni ce ASHIRU AI, robot mataimakiyarka."
-            q.contains("sunana") -> "Na ji. Zan iya tuna sunanka idan ka ajiye shi a memory."
-            q.contains("lokaci") -> "Duba agogon wayarka domin samun ainihin lokaci."
+            q.contains("waye") && (q.contains("kai") || q.contains("ke")) -> "Ni ce ASHIRU AI, robot mataimakiyarka."
             q.contains("na gode") -> "Babu komai. Ina farin cikin taimaka maka."
-            else -> "Na ji umarninka. A wannan sigar ina iya amsa gaisuwa da wasu umarni na asali. Za mu ƙara basirar AI a mataki na gaba."
+            q.contains("tuna") -> offlineBrain.findMemory(words) ?: offlineBrain.answer(words)
+                ?: "Ban sami wannan bayanin a ƙwaƙwalwata ba tukuna."
+            else -> offlineBrain.answer(words)
+                ?: "Na ji tambayarka, amma ban da isasshen bayani a ilimina na offline tukuna. Ka iya koya min ta akwatin memory."
         }
         status.text = answer
         say(answer)
