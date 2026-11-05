@@ -100,7 +100,7 @@ class AirGestureActivity : ComponentActivity() {
             try{
                 provider.unbindAll()
                 provider.bindToLifecycle(this,CameraSelector.DEFAULT_FRONT_CAMERA,previewUseCase,analysis)
-            }catch(e:Exception){status.text="Camera ta kasa farawa: ${e.message}"}
+            }catch(e:Exception){cameraStarted=false;status.text="Camera ta kasa farawa: ${e.message}"}
         },ContextCompat.getMainExecutor(this))
     }
     override fun onDestroy(){try{landmarker?.close()}catch(_:Exception){};cameraExecutor.shutdown();super.onDestroy()}
