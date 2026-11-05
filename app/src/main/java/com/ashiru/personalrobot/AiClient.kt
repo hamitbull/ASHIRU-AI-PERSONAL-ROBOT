@@ -6,7 +6,7 @@ import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
 
-class AiClient(context: Context) {
+class AiClient(private val context: Context) {
     private val prefs=context.getSharedPreferences("ai_config",Context.MODE_PRIVATE)
     fun ask(prompt:String):String? {
         val endpoint=prefs.getString("endpoint","").orEmpty()
