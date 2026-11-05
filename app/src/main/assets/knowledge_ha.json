@@ -1,0 +1,393 @@
+[
+  {
+    "id": "ha_greeting_001",
+    "category": "communication",
+    "language": "ha",
+    "questions": [
+      "sannu",
+      "ina kwana",
+      "ina yini",
+      "hello"
+    ],
+    "answer": "Sannu! Ina nan domin taimaka maka. Ka gaya min abin da kake son yi ko koya.",
+    "tags": [
+      "gaisuwa",
+      "conversation"
+    ]
+  },
+  {
+    "id": "ha_identity_001",
+    "category": "assistant",
+    "language": "ha",
+    "questions": [
+      "waye kai",
+      "menene ASHIRU AI"
+    ],
+    "answer": "Ni ne ASHIRU AI, mataimaki na dijital. Zan iya taimaka maka da bayani, koyarwa, tsara aiki da ayyukan waya da ka ba ni izini.",
+    "tags": [
+      "identity",
+      "assistant"
+    ]
+  },
+  {
+    "id": "ha_uncertainty_001",
+    "category": "reasoning",
+    "language": "ha",
+    "questions": [
+      "idan baka sani ba me zaka yi"
+    ],
+    "answer": "Idan ban da tabbataccen bayani ba, zan faɗi hakan a sarari, in bayyana abin da na sani da abin da ban sani ba. Ba zan ƙirƙiri amsa kamar gaskiya ba.",
+    "tags": [
+      "honesty",
+      "reasoning"
+    ]
+  },
+  {
+    "id": "ha_problem_001",
+    "category": "learning",
+    "language": "ha",
+    "questions": [
+      "yaya zan warware matsala"
+    ],
+    "answer": "Ka bayyana matsalar, ka raba ta zuwa ƙananan sassa, ka gano abin da ka sani da abin da ya rage, ka gwada mafita ɗaya bayan ɗaya, sannan ka duba sakamakon.",
+    "tags": [
+      "problem-solving",
+      "learning"
+    ]
+  },
+  {
+    "id": "ha_learning_001",
+    "category": "learning",
+    "language": "ha",
+    "questions": [
+      "yaya zan koyi sabon abu"
+    ],
+    "answer": "Ka fara da manufar abin da kake son koya, ka koyi muhimman kalmomi, ka karanta misali, ka yi ƙaramin gwaji da kanka, sannan ka maimaita abin da ka koya da kalmominka.",
+    "tags": [
+      "study",
+      "learning"
+    ]
+  },
+  {
+    "id": "ha_memory_001",
+    "category": "memory",
+    "language": "ha",
+    "questions": [
+      "yaya kake tuna abu",
+      "ka tuna min"
+    ],
+    "answer": "Zan iya ajiye bayanin da ka zaɓa a ƙwaƙwalwar sirri ta cikin wayarka. Za ka iya duba shi, gyara shi ko goge shi. Ilimin da aka zo da app ya bambanta da bayanan sirrinka.",
+    "tags": [
+      "memory",
+      "privacy"
+    ]
+  },
+  {
+    "id": "ha_offline_001",
+    "category": "technology",
+    "language": "ha",
+    "questions": [
+      "kana aiki ba internet"
+    ],
+    "answer": "Ilimin da aka sauke cikin app da ƙwaƙwalwar da aka adana a wayarka za su iya aiki ba tare da internet ba. Ayyukan da ke buƙatar sabis na waje ko bayanai na yanzu ba za su samu ba sai an haɗa internet.",
+    "tags": [
+      "offline",
+      "technology"
+    ]
+  },
+  {
+    "id": "ha_android_permission_001",
+    "category": "android",
+    "language": "ha",
+    "questions": [
+      "menene permission a waya"
+    ],
+    "answer": "Permission izini ne da Android ke nema kafin app ya yi amfani da wani abu kamar microphone, camera, files ko sanarwa. Ka ba app izinin da ya dace da aikin da kake son yi kawai.",
+    "tags": [
+      "android",
+      "permissions",
+      "privacy"
+    ]
+  },
+  {
+    "id": "ha_android_accessibility_001",
+    "category": "android",
+    "language": "ha",
+    "questions": [
+      "menene accessibility service"
+    ],
+    "answer": "Accessibility Service fasaha ce ta Android da ke taimaka wa masu amfani ko app mai izini yin wasu ayyuka ta fuskar screen. Dole ne mai waya ya kunna ta da kansa, kuma app ya bayyana abin da yake karantawa ko aikatawa.",
+    "tags": [
+      "android",
+      "accessibility",
+      "consent"
+    ]
+  },
+  {
+    "id": "ha_copy_text_001",
+    "category": "phone_skills",
+    "language": "ha",
+    "questions": [
+      "yaya zan kwafi rubutu daga app"
+    ],
+    "answer": "Idan app ɗin ya ba da damar zaɓar rubutu, ka taɓa rubutun ka riƙe, sannan ka zaɓi Copy. Idan ba a iya zaɓarsa ba, za a iya amfani da Share ko wani tsarin accessibility da ka kunna da kanka.",
+    "tags": [
+      "copy",
+      "phone",
+      "android"
+    ]
+  },
+  {
+    "id": "ha_password_001",
+    "category": "security",
+    "language": "ha",
+    "questions": [
+      "yaya zan kare password"
+    ],
+    "answer": "Yi amfani da kalmar sirri mai tsawo kuma daban ga kowane asusu. Kada ka tura password ko OTP ga wani. Yi amfani da password manager da tabbatarwa ta matakai biyu idan akwai.",
+    "tags": [
+      "password",
+      "security"
+    ]
+  },
+  {
+    "id": "ha_phishing_001",
+    "category": "security",
+    "language": "ha",
+    "questions": [
+      "menene phishing",
+      "yaya zan gane zamba"
+    ],
+    "answer": "Phishing ƙoƙari ne na yaudarar mutum ya bayar da password, OTP ko kuɗi ta hanyar saƙo ko shafin bogi. Duba adireshin shafi, kada ka bi link ɗin da ba ka yarda da shi ba, kuma ka tabbatar da buƙatar ta hanyar official app ko lambar hukuma.",
+    "tags": [
+      "scam",
+      "phishing",
+      "security"
+    ]
+  },
+  {
+    "id": "ha_backup_001",
+    "category": "technology",
+    "language": "ha",
+    "questions": [
+      "me yasa backup yake da muhimmanci"
+    ],
+    "answer": "Backup kwafin bayananka ne da ake ajiye wa domin dawo da su idan waya ta lalace, ta ɓace ko an goge bayanai. Ka riƙa yin backup a wuri mai tsaro kuma ka gwada dawo da shi.",
+    "tags": [
+      "backup",
+      "data"
+    ]
+  },
+  {
+    "id": "ha_programming_001",
+    "category": "programming",
+    "language": "ha",
+    "questions": [
+      "menene programming"
+    ],
+    "answer": "Programming rubuta umarni ne da kwamfuta za ta bi domin yin aiki. Ana amfani da harsuna kamar Kotlin, Java, Python da JavaScript wajen gina apps da tsarin kwamfuta.",
+    "tags": [
+      "coding",
+      "programming"
+    ]
+  },
+  {
+    "id": "ha_kotlin_001",
+    "category": "programming",
+    "language": "ha",
+    "questions": [
+      "menene kotlin"
+    ],
+    "answer": "Kotlin harshe ne na programming da ake amfani da shi wajen gina Android apps da sauran software. Yana aiki tare da Java ecosystem kuma yana tallafa wa null safety da concise syntax.",
+    "tags": [
+      "kotlin",
+      "android",
+      "coding"
+    ]
+  },
+  {
+    "id": "ha_database_001",
+    "category": "technology",
+    "language": "ha",
+    "questions": [
+      "menene database"
+    ],
+    "answer": "Database wuri ne da ake tsara bayanai domin a adana, bincika, gyara ko goge su. SQLite ya dace da bayanan app da ake son su kasance a cikin waya ba tare da server ba.",
+    "tags": [
+      "database",
+      "sqlite",
+      "offline"
+    ]
+  },
+  {
+    "id": "ha_ai_001",
+    "category": "artificial_intelligence",
+    "language": "ha",
+    "questions": [
+      "menene artificial intelligence"
+    ],
+    "answer": "Artificial Intelligence ko AI fasaha ce da ke taimaka wa kwamfuta yin ayyuka kamar fahimtar harshe, gane hotuna, nemo alamu da samar da amsa. AI na iya yin kuskure, saboda haka a tantance muhimman bayanai.",
+    "tags": [
+      "ai",
+      "technology"
+    ]
+  },
+  {
+    "id": "ha_ai_memory_001",
+    "category": "artificial_intelligence",
+    "language": "ha",
+    "questions": [
+      "menene bambanci tsakanin memory da training"
+    ],
+    "answer": "Memory adana bayanai ne da AI zai iya dawo da su daga baya. Training kuwa koyar da samfurin AI ne ta amfani da bayanai domin canza yadda yake aiki. Ajiye sabon bayani a memory ba ya nufin an sake horar da model.",
+    "tags": [
+      "ai",
+      "memory",
+      "training"
+    ]
+  },
+  {
+    "id": "ha_business_001",
+    "category": "business",
+    "language": "ha",
+    "questions": [
+      "yaya zan fara tsara kasuwanci"
+    ],
+    "answer": "Ka bayyana abin da za ka sayar, wanda zai saya, matsalar da kake warwarewa, kuɗin farawa, farashin kaya, kuɗin aiki da ribar da kake sa ran samu. Ka fara da ƙaramin gwaji kafin ka faɗaɗa.",
+    "tags": [
+      "business",
+      "planning"
+    ]
+  },
+  {
+    "id": "ha_profit_001",
+    "category": "business",
+    "language": "ha",
+    "questions": [
+      "yaya ake lissafin riba"
+    ],
+    "answer": "Ribar ciniki kafin wasu kuɗaɗen gudanarwa ita ce kuɗin sayarwa a cire kuɗin kaya. Don sanin ribar ƙarshe, a cire sauran kuɗaɗen aiki kamar sufuri, haya, wuta da albashi.",
+    "tags": [
+      "business",
+      "profit",
+      "math"
+    ]
+  },
+  {
+    "id": "ha_budget_001",
+    "category": "finance_basics",
+    "language": "ha",
+    "questions": [
+      "menene budget"
+    ],
+    "answer": "Budget tsari ne na kuɗin shiga da kuɗin fita na wani lokaci. Ka rubuta kuɗin shiga, muhimman buƙatu, bashi, tanadi da sauran kashe-kashe, sannan ka kwatanta ainihin kashewa da shirin.",
+    "tags": [
+      "budget",
+      "money"
+    ]
+  },
+  {
+    "id": "ha_math_percent_001",
+    "category": "math",
+    "language": "ha",
+    "questions": [
+      "yaya ake lissafin kashi dari"
+    ],
+    "answer": "Don samun kashi na wani adadi, ka ninka adadin da kaso sannan ka raba da 100. Misali, kashi 10 cikin 500 = 500 × 10 ÷ 100 = 50.",
+    "tags": [
+      "math",
+      "percentage"
+    ]
+  },
+  {
+    "id": "ha_science_water_001",
+    "category": "science",
+    "language": "ha",
+    "questions": [
+      "menene ruwa"
+    ],
+    "answer": "Ruwa sinadari ne mai tsarin H₂O, wato atom ɗin hydrogen biyu da oxygen ɗaya. Yana da muhimmanci ga rayuwa, tsafta da ayyukan jiki.",
+    "tags": [
+      "science",
+      "water"
+    ]
+  },
+  {
+    "id": "ha_health_emergency_001",
+    "category": "wellbeing",
+    "language": "ha",
+    "questions": [
+      "me zan yi idan na ji ciwo mai tsanani"
+    ],
+    "answer": "Idan kana da ciwo mai tsanani ko alamar gaggawa kamar wahalar numfashi, suma, zubar jini mai yawa ko ciwon kirji mai tsanani, nemi taimakon gaggawa daga asibiti. Bayanin app ba ya maye gurbin likita.",
+    "tags": [
+      "health",
+      "safety"
+    ]
+  },
+  {
+    "id": "ha_privacy_001",
+    "category": "privacy",
+    "language": "ha",
+    "questions": [
+      "shin kana karanta bayanan wayata"
+    ],
+    "answer": "Ba zan karanta bayanan wasu apps ko bayananka na sirri kai tsaye ba. Duk damar microphone, camera, notifications ko accessibility sai an bayyana dalilinta kuma kai ka ba da izini ta tsarin Android.",
+    "tags": [
+      "privacy",
+      "consent"
+    ]
+  },
+  {
+    "id": "ha_task_plan_001",
+    "category": "productivity",
+    "language": "ha",
+    "questions": [
+      "yaya zan tsara aiki"
+    ],
+    "answer": "Rubuta manufar aiki, raba ta zuwa matakai ƙanana, fifita abin da ya fi muhimmanci, sanya lokacin kammalawa, sannan ka duba ci gaba a ƙarshen rana.",
+    "tags": [
+      "planning",
+      "productivity"
+    ]
+  },
+  {
+    "id": "ha_network_001",
+    "category": "technology",
+    "language": "ha",
+    "questions": [
+      "menene wifi"
+    ],
+    "answer": "Wi-Fi fasaha ce ta haɗa na'urori da network ba tare da waya mai haɗawa ba. Haɗin Wi-Fi ba lallai ya nufin akwai internet ba; na'urori na iya sadarwa a local network kawai.",
+    "tags": [
+      "wifi",
+      "network"
+    ]
+  },
+  {
+    "id": "ha_file_001",
+    "category": "phone_skills",
+    "language": "ha",
+    "questions": [
+      "yaya zan tsara files"
+    ],
+    "answer": "Ka ƙirƙiri manyan folders bisa nau'in fayil kamar Documents, Photos, Videos da Projects. Ka yi amfani da sunaye masu ma'ana, ka guji goge fayil kafin ka tabbatar da abin da yake ciki.",
+    "tags": [
+      "files",
+      "organization"
+    ]
+  },
+  {
+    "id": "ha_decision_001",
+    "category": "reasoning",
+    "language": "ha",
+    "questions": [
+      "yaya zan yanke shawara"
+    ],
+    "answer": "Ka bayyana zaɓuɓɓukan, ka tantance fa'ida, haɗari, kuɗi da lokacin kowanne, ka nemi hujjoji, sannan ka zaɓi wanda ya fi dacewa da manufarka. Kada ka dogara da zato kawai.",
+    "tags": [
+      "decision",
+      "reasoning"
+    ]
+  }
+]
