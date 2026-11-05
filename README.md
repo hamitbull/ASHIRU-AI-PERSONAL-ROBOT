@@ -13,3 +13,6 @@ Push to `main` or run **Actions → ASHIRU AI Android APK → Run workflow**. Do
 
 ## Privacy and limitations
 This prototype does not silently inspect other apps, record continuously, or send screen contents to a server. Overlay access is optional. Speech recognition may be processed by the device's configured recognition provider. Full AI conversations, accessibility-based screen assistance, and music-synced dancing are planned follow-up modules and require explicit permissions and testing.
+
+
+Build workflow is configured to run on pushes to `main` and manual dispatch.
