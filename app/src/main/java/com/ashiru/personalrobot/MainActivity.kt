@@ -88,13 +88,13 @@ class MainActivity : Activity(), TextToSpeech.OnInitListener {
         val box=LinearLayout(this).apply { orientation=LinearLayout.VERTICAL; setPadding(18,4,18,4) }
         val endpoint=EditText(this).apply { hint="API URL (OpenAI-compatible)"; setSingleLine(); setText(prefs.getString("endpoint","https://api.openai.com/v1/chat/completions")) }
         val model=EditText(this).apply { hint="Model name"; setSingleLine(); setText(prefs.getString("model","gpt-4o-mini")) }
-        val key=EditText(this).apply { hint="API key"; setSingleLine(); inputType=129 }
+        val key=EditText(this).apply { hint="API key (bar shi idan ka riga ka saka)"; setSingleLine(); inputType=129 }
         box.addView(endpoint); box.addView(model); box.addView(key)
         AlertDialog.Builder(this).setTitle("AI connection")
             .setMessage("Saka endpoint, model da API key daga mai bada AI service. Kada ka saka key a GitHub. Amfani da cloud na iya haifar da kuɗin provider.")
             .setView(box).setPositiveButton("Ajiye") { _,_ ->
                 prefs.edit().putString("endpoint",endpoint.text.toString().trim()).putString("model",model.text.toString().trim()).apply()
-                SecurePrefs.save(this,key.text.toString().trim())
+                if(key.text.toString().isNotBlank()) SecurePrefs.save(this,key.text.toString().trim())
                 status.text="An ajiye saitin AI a wayarka."
             }.setNeutralButton("Goge key") { _,_ -> SecurePrefs.clear(this) }
             .setNegativeButton("Soke",null).show()
